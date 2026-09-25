@@ -1,0 +1,1249 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap");
+
+@import "tailwindcss";
+
+/* ================================
+   RESET
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #09080b;
+  color: #f7f2f5;
+  font-family: "DM Mono", monospace;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ================================
+   PAGE
+================================ */
+
+.birthday-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(116, 65, 96, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(73, 42, 70, 0.15),
+      transparent 30%
+    ),
+    #09080b;
+}
+
+/* ================================
+   AMBIENT LIGHT
+================================ */
+
+.ambient {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.4;
+  z-index: -2;
+}
+
+.ambient-one {
+  width: 420px;
+  height: 420px;
+
+  left: 50%;
+  top: 25%;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(139, 70, 113, 0.22);
+
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.ambient-two {
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  bottom: -80px;
+
+  background: rgba(82, 54, 91, 0.2);
+
+  animation: breathe 11s ease-in-out infinite reverse;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+/* ================================
+   FILM GRAIN
+================================ */
+
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 24px;
+
+  text-align: center;
+}
+
+/* ================================
+   STARS
+================================ */
+
+.stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+
+  color: rgba(255, 231, 242, 0.35);
+
+  font-size: 14px;
+
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 18%;
+  left: 17%;
+}
+
+.star-2 {
+  top: 27%;
+  right: 19%;
+
+  animation-delay: 1s;
+}
+
+.star-3 {
+  top: 62%;
+  left: 12%;
+
+  animation-delay: 2s;
+}
+
+.star-4 {
+  bottom: 18%;
+  right: 15%;
+
+  animation-delay: 1.5s;
+}
+
+.star-5 {
+  top: 12%;
+  right: 38%;
+
+  animation-delay: 0.5s;
+}
+
+.star-6 {
+  bottom: 28%;
+  left: 32%;
+
+  animation-delay: 2.5s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* ================================
+   EYEBROW
+================================ */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 28px;
+
+  color: rgba(255, 225, 237, 0.5);
+
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  font-weight: 400;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  animation: fadeUp 1.2s ease both;
+}
+
+.eyebrow-line {
+  width: 30px;
+  height: 1px;
+
+  background: rgba(255, 225, 237, 0.25);
+}
+
+/* ================================
+   NAME
+================================ */
+
+.name {
+  margin: 0;
+
+  color: #f9eaf1;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(64px, 12vw, 150px);
+
+  font-weight: 300;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.045em;
+
+  text-shadow:
+    0 0 50px rgba(218, 140, 180, 0.12);
+
+  animation: fadeUp 1.4s 0.1s ease both;
+}
+
+/* ================================
+   TITLE
+================================ */
+
+.hero-title {
+  max-width: 500px;
+
+  margin: 30px 0 70px;
+
+  color: rgba(255, 240, 247, 0.62);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(18px, 2.5vw, 26px);
+
+  font-weight: 300;
+
+  font-style: italic;
+
+  line-height: 1.3;
+
+  animation: fadeUp 1.4s 0.2s ease both;
+}
+
+/* ================================
+   COUNTDOWN
+================================ */
+
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: clamp(10px, 2vw, 30px);
+
+  animation: fadeUp 1.4s 0.35s ease both;
+}
+
+.countdown-unit {
+  min-width: clamp(55px, 9vw, 110px);
+}
+
+.countdown-number {
+  color: #fff6fa;
+
+  font-family: "DM Mono", monospace;
+
+  font-size: clamp(30px, 5vw, 68px);
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  letter-spacing: -0.07em;
+
+  font-variant-numeric: tabular-nums;
+
+  text-shadow:
+    0 0 35px rgba(255, 194, 221, 0.1);
+}
+
+.countdown-label {
+  margin-top: 14px;
+
+  color: rgba(255, 226, 239, 0.35);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.countdown-separator {
+  padding-top: 1px;
+
+  color: rgba(255, 207, 226, 0.2);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: clamp(24px, 4vw, 50px);
+
+  font-weight: 300;
+}
+
+/* ================================
+   CAPTION
+================================ */
+
+.countdown-caption {
+  margin-top: 34px;
+
+  color: rgba(255, 226, 239, 0.38);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+
+  animation: fadeUp 1.4s 0.5s ease both;
+}
+
+/* ================================
+   DATE
+================================ */
+
+.date-marker {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 55px;
+
+  color: rgba(255, 226, 239, 0.3);
+
+  font-size: 8px;
+
+  letter-spacing: 0.25em;
+
+  animation: fadeUp 1.4s 0.65s ease both;
+}
+
+.date-marker p {
+  margin: 0;
+}
+
+.date-marker span {
+  width: 24px;
+  height: 1px;
+
+  background: rgba(255, 226, 239, 0.18);
+}
+
+/* ================================
+   SCROLL
+================================ */
+
+.scroll-hint {
+  position: absolute;
+
+  bottom: 28px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(255, 226, 239, 0.25);
+
+  font-size: 8px;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  animation: fadeUp 1.4s 1s ease both;
+}
+
+.scroll-arrow {
+  font-size: 15px;
+
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* ================================
+   BIRTHDAY REVEAL
+================================ */
+
+.birthday-reveal {
+  animation: reveal 1.5s ease both;
+}
+
+.birthday-date {
+  margin-bottom: 25px;
+
+  color: rgba(255, 226, 239, 0.4);
+
+  font-size: 10px;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+}
+
+.birthday-reveal h2 {
+  margin: 0;
+
+  color: #f9eaf1;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(45px, 8vw, 90px);
+
+  font-weight: 300;
+
+  line-height: 0.95;
+}
+
+.birthday-reveal p {
+  margin-top: 25px;
+
+  color: rgba(255, 240, 247, 0.55);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 21px;
+
+  font-style: italic;
+
+  line-height: 1.4;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================================
+   FADE UP
+================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 18px;
+  }
+
+  .eyebrow {
+    gap: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.17em;
+  }
+
+  .eyebrow-line {
+    width: 18px;
+  }
+
+  .hero-title {
+    margin-top: 25px;
+    margin-bottom: 55px;
+  }
+
+  .countdown {
+    gap: 5px;
+  }
+
+  .countdown-unit {
+    min-width: 55px;
+  }
+
+  .countdown-number {
+    font-size: clamp(25px, 8vw, 40px);
+  }
+
+  .countdown-label {
+    margin-top: 10px;
+    font-size: 6px;
+  }
+
+  .countdown-separator {
+    font-size: 24px;
+  }
+
+  .countdown-caption {
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  .date-marker {
+    margin-top: 45px;
+
+    font-size: 7px;
+  }
+
+  .date-marker span {
+    width: 14px;
+  }
+
+  .star-1 {
+    left: 8%;
+  }
+
+  .star-2 {
+    right: 8%;
+  }
+
+  .star-3 {
+    left: 7%;
+  }
+
+  .star-4 {
+    right: 8%;
+  }
+}
+
+/* ========================================
+   CINEMATIC INTRO
+======================================== */
+
+.app {
+  min-height: 100vh;
+  background: #09080b;
+}
+
+/* ----------------------------------------
+   INTRO
+---------------------------------------- */
+
+.intro-screen {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(130, 66, 101, 0.15),
+      transparent 34%
+    ),
+    #09080b;
+}
+
+.intro-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px 24px;
+}
+
+/* ----------------------------------------
+   INTRO GLOW
+---------------------------------------- */
+
+.intro-glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(184, 91, 139, 0.12),
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  animation: introPulse 7s ease-in-out infinite;
+}
+
+@keyframes introPulse {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.85);
+
+    opacity: 0.5;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------
+   SYMBOL
+---------------------------------------- */
+
+.intro-symbol {
+  margin-bottom: 34px;
+
+  color: rgba(255, 224, 239, 0.7);
+
+  font-size: 15px;
+
+  animation:
+    introFade 1.4s ease both,
+    symbolFloat 4s 1.4s ease-in-out infinite;
+}
+
+@keyframes symbolFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ----------------------------------------
+   SMALL TEXT
+---------------------------------------- */
+
+.intro-small {
+  margin: 0 0 20px;
+
+  color: rgba(255, 224, 239, 0.4);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+
+  animation:
+    introFade 1.4s 0.1s ease both;
+}
+
+/* ----------------------------------------
+   NAME
+---------------------------------------- */
+
+.intro-name {
+  margin: 0;
+
+  color: #f9eaf1;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(72px, 14vw, 170px);
+
+  font-weight: 300;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.055em;
+
+  text-shadow:
+    0 0 70px rgba(216, 126, 170, 0.1);
+
+  animation:
+    introName 1.6s 0.2s cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ) both;
+}
+
+@keyframes introName {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.97);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+/* ----------------------------------------
+   DESCRIPTION
+---------------------------------------- */
+
+.intro-description {
+  margin: 35px 0 48px;
+
+  color: rgba(255, 238, 246, 0.48);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 21px;
+
+  font-weight: 300;
+
+  font-style: italic;
+
+  line-height: 1.35;
+
+  animation:
+    introFade 1.4s 0.4s ease both;
+}
+
+/* ----------------------------------------
+   ENTER BUTTON
+---------------------------------------- */
+
+.enter-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+
+  min-height: 52px;
+
+  padding: 0 24px;
+
+  border: 1px solid rgba(255, 222, 237, 0.18);
+
+  border-radius: 100px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 238, 246, 0.78);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+
+  animation:
+    introFade 1.4s 0.55s ease both;
+}
+
+.enter-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border: 1px solid
+    rgba(255, 222, 237, 0.04);
+
+  border-radius: inherit;
+
+  transition:
+    inset 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.enter-button:hover {
+  background: rgba(255, 222, 237, 0.07);
+
+  border-color:
+    rgba(255, 222, 237, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.enter-button:hover::before {
+  inset: -8px;
+
+  border-color:
+    rgba(255, 222, 237, 0.1);
+}
+
+.enter-button:active {
+  transform: translateY(0);
+}
+
+.enter-arrow {
+  font-size: 16px;
+
+  transition:
+    transform 0.4s ease;
+}
+
+.enter-button:hover .enter-arrow {
+  transform: translateX(5px);
+}
+
+/* ----------------------------------------
+   HINT
+---------------------------------------- */
+
+.intro-hint {
+  margin-top: 22px;
+
+  color: rgba(255, 224, 239, 0.2);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  animation:
+    introFade 1.4s 0.7s ease both;
+}
+
+/* ----------------------------------------
+   INTRO FADE
+---------------------------------------- */
+
+@keyframes introFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------------------------------------
+   ENTER TRANSITION
+---------------------------------------- */
+
+.app.entered .intro-screen {
+  animation: introExit 1.1s
+    cubic-bezier(0.76, 0, 0.24, 1)
+    forwards;
+}
+
+@keyframes introExit {
+  from {
+    opacity: 1;
+
+    transform: scale(1);
+
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+
+    transform: scale(1.04);
+
+    filter: blur(10px);
+  }
+}
+
+/* ----------------------------------------
+   MOBILE
+---------------------------------------- */
+
+@media (max-width: 600px) {
+  .intro-content {
+    padding: 30px 20px;
+  }
+
+  .intro-name {
+    font-size: clamp(64px, 20vw, 110px);
+  }
+
+  .intro-description {
+    margin-top: 28px;
+    margin-bottom: 42px;
+
+    font-size: 19px;
+  }
+
+  .enter-button {
+    min-height: 50px;
+
+    padding: 0 20px;
+
+    font-size: 8px;
+  }
+}
+
+/* ----------------------------------------
+   REDUCED MOTION
+---------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-screen,
+  .intro-content *,
+  .intro-glow {
+    animation: none !important;
+  }
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ========================================
+   VOICE PLAYER
+======================================== */
+
+.voice-player {
+  display: flex;
+  align-items: center;
+
+  width: min(360px, 90vw);
+
+  margin-top: 38px;
+
+  padding: 12px 14px 12px 18px;
+
+  border: 1px solid rgba(255, 222, 237, 0.12);
+
+  border-radius: 100px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    border-color 0.4s ease,
+    background 0.4s ease,
+    transform 0.4s ease;
+
+  animation:
+    fadeUp 1.4s 0.7s ease both;
+}
+
+.voice-player:hover {
+  border-color:
+    rgba(255, 222, 237, 0.28);
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   BARS
+======================================== */
+
+.voice-bars {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 3px;
+
+  width: 48px;
+  height: 32px;
+
+  flex-shrink: 0;
+}
+
+.voice-bars span {
+  display: block;
+
+  width: 2px;
+
+  height: 8px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 205, 226, 0.6);
+
+  transform-origin: center;
+
+  transition:
+    height 0.3s ease;
+}
+
+.voice-player.is-playing
+.voice-bars span {
+  animation:
+    soundWave 0.8s ease-in-out infinite
+    alternate;
+}
+
+@keyframes soundWave {
+  0% {
+    height: 5px;
+  }
+
+  100% {
+    height: 25px;
+  }
+}
+
+/* ========================================
+   TEXT
+======================================== */
+
+.voice-player-text {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  flex: 1;
+
+  margin-left: 12px;
+}
+
+.voice-status {
+  color:
+    rgba(255, 218, 233, 0.38);
+
+  font-family:
+    "DM Mono", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.voice-title {
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  color:
+    rgba(255, 238, 246, 0.7);
+
+  font-family:
+    "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  font-style: italic;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   PLAY BUTTON
+======================================== */
+
+.voice-play {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 220, 235, 0.08);
+
+  color:
+    rgba(255, 235, 244, 0.7);
+
+  font-size: 10px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.voice-player:hover
+.voice-play {
+  background:
+    rgba(255, 220, 235, 0.15);
+
+  transform: scale(1.05);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .voice-player {
+    width: min(330px, 92vw);
+
+    margin-top: 32px;
+  }
+
+  .voice-title {
+    font-size: 16px;
+  }
+}
+
+
+
+
+
