@@ -8,7 +8,7 @@ import herSong from "./assets/her-song.mp3";
 // ========================================
 
 const BIRTHDAY_CONFIG = {
-  name: "HER NAME",
+  name: "Debjani",
   birthday: "2026-10-04T00:00:00+05:30",
   age: 18,
 
