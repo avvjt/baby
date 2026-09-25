@@ -12,7 +12,7 @@ const BIRTHDAY_CONFIG = {
   birthday: "2026-10-04T00:00:00+05:30",
   age: 18,
 
-  introLabel: "A little something for someone special",
+  introLabel: "a little surprise dedicated to my wife debjani ",
 
   title: "Something magical is coming...",
   subtitle: "Until the world gets to celebrate you.",
